@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 14% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 20 14% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14% 4%;
+    --primary: 28 100% 60%; /* Saffron #FF9933 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 20% 96%;
+    --secondary-foreground: 28 100% 40%;
+    --muted: 30 20% 98%;
+    --muted-foreground: 20 14% 45%;
+    --accent: 28 100% 96%;
+    --accent-foreground: 28 100% 50%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 20 14% 92%;
+    --input: 20 14% 92%;
+    --ring: 28 100% 60%;
+    --radius: 1.25rem;
+  }
+
+  .dark {
+    --background: 20 14% 4%;
+    --foreground: 0 0% 98%;
+    --card: 20 14% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 20 14% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 28 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 20 14% 12%;
+    --secondary-foreground: 28 100% 60%;
+    --muted: 20 14% 12%;
+    --muted-foreground: 20 14% 65%;
+    --accent: 28 100% 15%;
+    --accent-foreground: 28 100% 80%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 20 14% 18%;
+    --input: 20 14% 18%;
+    --ring: 28 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30 overflow-x-hidden;
+    font-feature-settings: "cv11", "ss01", "ss03";
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.saffron-gradient {
+  background: linear-gradient(135deg, #FF9933 0%, #FFB366 100%);
+}
+
+@keyframes slide-up {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+.glass-morphism {
+  @apply backdrop-blur-xl bg-white/80 border border-white/20;
+}
